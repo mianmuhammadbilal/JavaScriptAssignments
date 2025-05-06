@@ -1,0 +1,51 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #e4cd87;
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+}
+h1 {
+  text-align: center;
+}
+.task-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+}
+button {
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+}
+.task-text {
+  flex: 1;
+  margin-right: 10px;
+}
+.actions button {
+  margin-left: 5px;
+}
+#search {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+}

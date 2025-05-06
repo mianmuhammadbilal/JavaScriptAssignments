@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<<<<<<< HEAD
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1</title>
+</head>
+<body>
+   <script src="chapter1.js"></script>
+   <script src="chapter2.js"></script>
+   <script src="chapter3.js"></script>
+    
+</body>
+</html>
+=======
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Task Manager</h1>
+
+  <input type="text" id="search" placeholder="Search tasks..." />
+
+  <div class="task-input">
+    <input type="text" id="new-task" placeholder="Enter new task..." />
+    <button onclick="addTask()">Add</button>
+  </div>
+
+  <ul id="task-list"></ul>
+
+  <script>
+    let tasks = [];
+
+    function renderTasks() {
+      const searchKeyword = document.getElementById('search').value.toLowerCase();
+      const taskList = document.getElementById('task-list');
+      taskList.innerHTML = '';
+
+      tasks
+        .filter(task => task.text.toLowerCase().includes(searchKeyword))
+        .forEach((task, index) => {
+          const li = document.createElement('li');
+
+          if (task.editing) {
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = task.text;
+            input.className = 'task-text';
+            li.appendChild(input);
+
+            const saveBtn = document.createElement('button');
+            saveBtn.textContent = 'Save';
+            saveBtn.onclick = () => saveTask(index, input.value);
+            li.appendChild(saveBtn);
+
+            const cancelBtn = document.createElement('button');
+            cancelBtn.textContent = 'Cancel';
+            cancelBtn.onclick = () => cancelEdit(index);
+            li.appendChild(cancelBtn);
+          } else {
+            const span = document.createElement('span');
+            span.textContent = task.text;
+            span.className = 'task-text';
+            li.appendChild(span);
+
+            const actions = document.createElement('div');
+            actions.className = 'actions';
+
+            const editBtn = document.createElement('button');
+            editBtn.textContent = 'Edit';
+            editBtn.onclick = () => editTask(index);
+            actions.appendChild(editBtn);
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.onclick = () => deleteTask(index);
+            actions.appendChild(deleteBtn);
+
+            li.appendChild(actions);
+          }
+
+          taskList.appendChild(li);
+        });
+    }
+
+    function addTask() {
+      const newTaskInput = document.getElementById('new-task');
+      const text = newTaskInput.value.trim();
+      if (text !== '') {
+        tasks.push({ text, editing: false });
+        newTaskInput.value = '';
+        renderTasks();
+      }
+    }
+
+    function deleteTask(index) {
+      tasks.splice(index, 1);
+      renderTasks();
+    }
+
+    function editTask(index) {
+      tasks[index].editing = true;
+      renderTasks();
+    }
+
+    function saveTask(index, newText) {
+      tasks[index].text = newText;
+      tasks[index].editing = false;
+      renderTasks();
+    }
+
+    function cancelEdit(index) {
+      tasks[index].editing = false;
+      renderTasks();
+    }
+
+    document.getElementById('search').addEventListener('input', renderTasks);
+  </script>
+</body>
+</html>
+>>>>>>> 352d56d (My Todo)
