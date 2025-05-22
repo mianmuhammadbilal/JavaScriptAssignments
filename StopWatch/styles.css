@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    color: red;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url(images/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.heading{
+    margin-bottom: 22px;
+    font-size: 55px;
+    color:red;
+    background-color: rgb(36, 34, 34);
+    border-radius: 10px;
+}
+.stopwatch{
+        background-color: black;
+        padding: 20px 24px;
+        border-radius: 10px;
+}
+.timerDisplay{
+    font-size: 50px;
+    font-weight: bold;
+
+}
+.buttons{
+    margin-top: 22px;
+}
+.btn{
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: white;
+    background-color: brown;
+    padding: 12px 15px;
+    margin-inline: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#startBtn{
+    background-color: green;
+}
+#stopBtn{
+    background-color: red;
+}
+#resetBtn{
+    background-color: blue;
+}
